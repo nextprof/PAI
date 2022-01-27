@@ -11,7 +11,7 @@
 <body>
     <div class="base-container">
         <nav>
-            <img src="public/img/logo.svg">
+            <img src="public/img/logo.png">
             <ul>
                 <li>
                     <i class="fas fa-project-diagram"></i>

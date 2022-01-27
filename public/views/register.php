@@ -9,7 +9,7 @@
 <body>
     <div class="container">
         <div class="logo">
-            <img src="public/img/logo.svg">
+            <img src="public/img/logo.png">
         </div>
         <div class="login-container">
             <form class="register" action="register" method="POST">
