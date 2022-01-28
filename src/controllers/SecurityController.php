@@ -1,6 +1,8 @@
 <?php
+
 namespace controllers;
 
+use base\Session;
 use models\User;
 use repository\UserRepository;
 
@@ -34,12 +36,15 @@ class SecurityController extends AppController
             return $this->render('login', ['messages' => ['User with this email not exist!']]);
         }
 
-        if (password_verify($password, $user->getPassword())) {
+        if (!password_verify($password, $user->getPassword())) {
             return $this->render('login', ['messages' => ['Wrong password!']]);
         }
 
+        Session::login($user);
+
         $url = "http://$_SERVER[HTTP_HOST]";
-        header("Location: {$url}/projects");
+        header("Location: {$url}/dashboard");
+        return "redirect";
     }
 
     public function register()
@@ -58,10 +63,23 @@ class SecurityController extends AppController
         }
 
         //TODO try to use better hash function
-        $user = new User($email, password_hash($password, PASSWORD_DEFAULT), $name);
+        $user = new User(null, $email, password_hash($password, PASSWORD_DEFAULT), $name);
 
         $this->userRepository->addUser($user);
 
-        return $this->render('login', ['messages' => ['You\'ve been succesfully registrated!']]);
+        return $this->render('login', ['messages' => ['You\'ve been successfully registered!']]);
+    }
+
+    public function logout()
+    {
+        if (!$this->isPost()) {
+            return $this->render('login');
+        }
+
+        Session::logout();
+
+        $url = "http://$_SERVER[HTTP_HOST]";
+        header("Location: {$url}/login");
+        return $this->render('login', ['messages' => ['Logged out!']]);
     }
 }
