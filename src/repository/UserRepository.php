@@ -44,4 +44,17 @@ class UserRepository extends Repository
         ]);
     }
 
+    public function findUserWithName($query)
+    {
+        $stmt = $this->database->connect()->prepare('
+            SELECT * FROM users u WHERE username like :name limit 10;
+        ');
+        $stmt->bindParam(':name', $query, PDO::PARAM_STR);
+        $stmt->execute();
+
+        $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        return new $users;
+    }
+
 }

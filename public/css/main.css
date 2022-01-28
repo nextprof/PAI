@@ -1,0 +1,142 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  color: white;
+  font-family: "Verdana", serif;
+  font-size: 16px;
+  background-color: #252526;
+}
+
+body {
+  width: 100%;
+  margin: auto;
+  display: flex;
+  min-height: 100vh;
+}
+
+a {
+  text-decoration: none;
+  color: unset;
+}
+
+header {
+  display: flex;
+  width: 256px;
+  background-color: #252526;
+}
+header nav {
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  gap: 1rem;
+  position: sticky;
+  top: 0;
+}
+
+main {
+  width: calc(100% - 256px);
+  height: 100vh;
+  margin: 0 0 auto 0;
+}
+
+.content {
+  height: 100%;
+}
+
+i.fas {
+  margin-right: 0.5rem;
+}
+
+footer {
+  flex-direction: row;
+  background-color: #252526;
+}
+
+.chat {
+  display: flex;
+  height: 100%;
+}
+.chat .message-box {
+  position: relative;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-end;
+  background-color: #4d4d52;
+  height: 100%;
+  width: 80%;
+}
+.chat .message-box .message-title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #b75247;
+  padding: 0.5rem;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+.chat .message-box .message-list {
+  padding: 1rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.chat .message-box .message-list .message {
+  padding: 0.5rem;
+  max-width: 80%;
+  overflow-wrap: break-word;
+}
+.chat .message-box .message-list .message.from {
+  background-color: #A8A8A8;
+  border-radius: 1rem 1rem 1rem 0;
+  align-self: flex-start;
+}
+.chat .message-box .message-list .message.to {
+  background-color: #ff6161;
+  border-radius: 1rem 1rem 0 1rem;
+  align-self: flex-end;
+}
+.chat .message-box .message-input {
+  margin-top: 1rem;
+  border-radius: 1rem;
+  padding: 0.5rem;
+}
+.chat .contact-box {
+  padding: 0.5rem;
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  background-color: #252526;
+}
+.chat .contact-box .title-line {
+  width: 100%;
+  font-weight: 600;
+  margin: 1.5rem 0 0.5rem 0;
+}
+.chat .contact-box .contact-query {
+  border-radius: 1rem;
+  padding: 0.5rem 0.75rem;
+  width: 100%;
+  border: none;
+}
+.chat .contact-box button {
+  width: 100%;
+  padding: 0.5rem 0.25rem;
+  background-color: transparent;
+  color: white;
+  font-size: 1rem;
+  margin-top: 1rem;
+  border: 1px solid transparent;
+  border-radius: 1rem;
+}
+.chat .contact-box button .add-symbol {
+  color: #b75247;
+}
+.chat .contact-box button:hover {
+  border-color: #b75247;
+  cursor: pointer;
+}

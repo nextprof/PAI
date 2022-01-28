@@ -7,7 +7,7 @@ use models\User;
 class Session
 {
 
-    public static function is_logged($user): bool
+    public static function is_logged(): bool
     {
         return isset($_SESSION['user']);
     }
@@ -20,6 +20,7 @@ class Session
     public static function logout()
     {
         unset($_SESSION['user']);
+        session_destroy();
     }
 
     public static function getId(): int
@@ -27,5 +28,10 @@ class Session
         /** @var User $user */
         $user = $_SESSION['user'];
         return $user->getId();
+    }
+
+    public static function getUser()
+    {
+        return json_encode($_SESSION['user']);
     }
 }

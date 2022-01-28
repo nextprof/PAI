@@ -40,11 +40,19 @@ class SecurityController extends AppController
             return $this->render('login', ['messages' => ['Wrong password!']]);
         }
 
+
+
         Session::login($user);
 
-        $url = "http://$_SERVER[HTTP_HOST]";
-        header("Location: {$url}/dashboard");
-        return "redirect";
+        if(Session::is_logged()){
+            $url = "http://$_SERVER[HTTP_HOST]";
+            header("Location: {$url}/messages");
+            return "redirect";
+        }else{
+            return $this->render('login', ['messages' => ['User has not been logged in']]);
+        }
+
+
     }
 
     public function register()
@@ -72,14 +80,10 @@ class SecurityController extends AppController
 
     public function logout()
     {
-        if (!$this->isPost()) {
-            return $this->render('login');
-        }
 
         Session::logout();
-
         $url = "http://$_SERVER[HTTP_HOST]";
-        header("Location: {$url}/login");
+//        header("Location: {$url}/login");
         return $this->render('login', ['messages' => ['Logged out!']]);
     }
 }
