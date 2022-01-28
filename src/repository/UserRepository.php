@@ -3,7 +3,7 @@
 namespace repository;
 
 use models\User;
-use repository\Repository;
+use PDO;
 
 class UserRepository extends Repository
 {

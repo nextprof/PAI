@@ -5,14 +5,12 @@ namespace base;
 use PDO;
 use PDOException;
 
-require_once "../../config.php";
-
 class Database
 {
-    private $username;
-    private $password;
-    private $host;
-    private $database;
+    private string $username;
+    private string $password;
+    private string $host;
+    private string $database;
 
     public function __construct()
     {
