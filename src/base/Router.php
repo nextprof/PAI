@@ -2,6 +2,8 @@
 
 namespace base;
 
+use Exception;
+
 class Router
 {
     public static $routes;
@@ -32,6 +34,10 @@ class Router
 
         $id = $urlParts[1] ?? '';
 
-        $object->$action($id);
+        try {
+            echo $object->$action($id);
+        } catch (Exception $e) {
+            echo $e->getCode() . "\n" . $e->getMessage();
+        }
     }
 }

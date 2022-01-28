@@ -24,7 +24,7 @@ class ProjectController extends AppController
     public function projects()
     {
         $projects = $this->projectRepository->getProjects();
-        $this->render('projects', ['projects' => $projects]);
+        return $this->render('projects', ['projects' => $projects]);
     }
 
     public function addProject()
@@ -59,7 +59,7 @@ class ProjectController extends AppController
             header('Content-type: application/json');
             http_response_code(200);
 
-            echo json_encode($this->projectRepository->getProjectByTitle($decoded['search']));
+            return json_encode($this->projectRepository->getProjectByTitle($decoded['search']));
         }
     }
 

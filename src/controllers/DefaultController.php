@@ -6,6 +6,6 @@ class DefaultController extends AppController {
 
     public function index()
     {
-        $this->render('login');
+        return $this->render('login');
     }
 }
