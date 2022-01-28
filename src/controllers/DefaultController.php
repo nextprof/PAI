@@ -1,6 +1,6 @@
 <?php
 
-require_once 'AppController.php';
+namespace controllers;
 
 class DefaultController extends AppController {
 

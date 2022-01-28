@@ -1,6 +1,8 @@
 <?php
 
-require_once __DIR__.'/../../Database.php';
+namespace repository;
+
+use base\Database;
 
 class Repository {
     protected $database;

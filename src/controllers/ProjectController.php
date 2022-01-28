@@ -1,8 +1,9 @@
 <?php
 
-require_once 'AppController.php';
-require_once __DIR__ . '/../models/Project.php';
-require_once __DIR__ . '/../repository/ProjectRepository.php';
+namespace controllers;
+
+use models\Project;
+use repository\ProjectRepository;
 
 class ProjectController extends AppController
 {

@@ -1,7 +1,10 @@
 <?php
 
-require_once 'Repository.php';
-require_once __DIR__ . '/../models/Project.php';
+namespace repository;
+
+use DateTime;
+use models\Project;
+use PDO;
 
 class ProjectRepository extends Repository
 {
