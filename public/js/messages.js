@@ -200,7 +200,6 @@ window.addEventListener("load", function () {
 
 window.setInterval(function () {
     get_contact_list();
-
     if (recipient_id != null)
         get_messages(recipient_id);
 }, 5000);
