@@ -2,6 +2,7 @@
 
 namespace repository;
 
+use base\Session;
 use models\User;
 use PDO;
 
@@ -11,7 +12,7 @@ class UserRepository extends Repository
     public function getUser(string $email): ?User
     {
         $stmt = $this->database->connect()->prepare('
-            SELECT * FROM users u WHERE email = :email
+            SELECT * FROM users u WHERE email = :email limit 20;
         ');
         $stmt->bindParam(':email', $email, PDO::PARAM_STR);
         $stmt->execute();
@@ -44,17 +45,19 @@ class UserRepository extends Repository
         ]);
     }
 
-    public function findUserWithName($query)
+    public function findUserWithName($query): array
     {
         $stmt = $this->database->connect()->prepare('
-            SELECT * FROM users u WHERE username like :name limit 10;
+            SELECT id as id, username as name 
+            FROM users u 
+            WHERE username like :name and id != :my_id
+            limit 10;
         ');
-        $stmt->bindParam(':name', $query, PDO::PARAM_STR);
+        $stmt->bindValue(':name', '%' . $query . '%', PDO::PARAM_STR);
+        $stmt->bindValue(':my_id', Session::getId(), PDO::PARAM_STR);
         $stmt->execute();
-
-        $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-        return new $users;
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $result != false ? $result : [];
     }
 
 }

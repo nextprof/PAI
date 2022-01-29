@@ -2,8 +2,15 @@
 
 namespace models;
 
-class Message
+use JsonSerializable;
+
+class Message implements JsonSerializable
 {
+    private int $id;
+    private int $id_from;
+    private int $id_to;
+    private string $message;
+
     /**
      * @return int
      */
@@ -67,10 +74,9 @@ class Message
     {
         $this->message = $message;
     }
-    private int $id;
-    private int $id_from;
-    private int $id_to;
-    private string $message;
 
-
+    public function jsonSerialize()
+    {
+        return get_object_vars($this);
+    }
 }

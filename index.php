@@ -34,6 +34,7 @@ Router::post('messages', MessageController::class);
 
 Router::post('message_get', MessageAPIController::class);
 Router::post('message_send', MessageAPIController::class);
-
+Router::post('contact_list', MessageAPIController::class);
+Router::post('contact_search', MessageAPIController::class);
 
 Router::run($path);

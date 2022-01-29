@@ -6,31 +6,28 @@ include "header.php";
     <div class="chat">
 
         <div class="message-box">
-            <div class="message-title">Jakub Kowalski</div>
+            <div class="message-title"></div>
             <div class="message-list">
 
             </div>
-            <input class="message-input" class="form-control" type="textarea">
+
+            <form class="message-form">
+                <input class="message-input" type="textarea">
+            </form>
         </div>
         <div class="contact-box">
             <div class="title-line">Contacts</div>
             <div class="contact-list">
-                <button class="user message-user"><i class="fas fa-user"></i>Jakub Kowalski</button>
-                <button class="user message-user"><i class="fas fa-user"></i>Jakub Kowalski</button>
-                <button class="user message-user"><i class="fas fa-user"></i>Jakub Kowalski</button>
-                <button class="user message-user"><i class="fas fa-user"></i>Jakub Kowalski</button>
-                <button class="user message-user"><i class="fas fa-user"></i>Jakub Kowalski</button>
-                <button class="user message-user"><i class="fas fa-user"></i>Jakub Kowalski</button>
             </div>
 
             <div class="title-line">Find Friend</div>
             <div class="search-box">
-                <label>
-                    <input class="contact-query" type="text" placeholder="Username">
-                </label>
-                <button class="user add-user"><i class="fas fa-plus add-symbol"></i>Jakub Kowalski</button>
-                <button class="user add-user"><i class="fas fa-plus add-symbol"></i>Jakub Kowalski</button>
-                <button class="user add-user"><i class="fas fa-plus add-symbol"></i>Jakub Kowalski</button>
+
+                <form class="contact-search-form">
+                    <input class="contact-query" type="text" placeholder="Searched username">
+                </form>
+                <div class="search-list">
+                </div>
             </div>
 
         </div>

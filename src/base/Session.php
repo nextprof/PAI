@@ -15,6 +15,7 @@ class Session
     public static function login($user)
     {
         $_SESSION['user'] = $user;
+        setcookie("user_id", self::getId());
     }
 
     public static function logout()
