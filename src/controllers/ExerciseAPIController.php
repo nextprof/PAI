@@ -21,10 +21,14 @@ class ExerciseAPIController extends APIController
             $decoded = json_decode($content, true);
 
             $exercise_id = $decoded['exercise-id'];
-            $repeats = $decoded['exercise-repeats'];
-            $weight = $decoded['exercise-weight'] ?? "0";
+            $repeats = intval($decoded['exercise-repeats']);
+            $series = intval($decoded['exercise-series']);
 
-            (new ExercisesRecordsRepository)->exercise_add($exercise_id, $repeats, $weight);
+
+            $weight = $decoded['exercise-weight'] ?? "0";
+            $date = $decoded['date'];
+
+            (new ExercisesRecordsRepository)->exercise_add($exercise_id, $repeats * $series, $weight, $date);
             return self::JSONResponse(["response" => "ok"]);
         } else {
             return self::JSONResponse(["response" => "need to be post method"]);

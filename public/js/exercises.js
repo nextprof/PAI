@@ -1,8 +1,25 @@
 const exercise_add_form = document.getElementsByClassName("exercise-form")[0];
 const exercise_weight = document.getElementById("exercise-weight");
 const exercise_id = document.getElementById("exercise-id");
+const exercises_list_title = document.getElementsByClassName("exercise-title")[0];
 const exercises_list = document.getElementsByClassName("exercises-list")[0];
 let exercise_dict = {};
+
+let day_diff = 0;
+let date;
+
+function next_day() {
+    if (day_diff > 0) {
+        day_diff--;
+        get_exercises()
+    }
+}
+
+function previous_day() {
+    day_diff++;
+    get_exercises();
+}
+
 
 function get_exercise_type_list() {
     fetch("/exercise_types_get", {
@@ -47,8 +64,9 @@ function add_exercise_entry(id, title, repeats, weight) {
                       <div class='repeats'>${repeats}</div>
                       <div class='weight'>${weight}</div>`
 
-    let item_button_remove = document.createElement("button")
-    item_button_remove.innerText = "Remove"
+    let item_button_remove = document.createElement("button");
+    item_button_remove.classList.add("exercise-remove");
+    item_button_remove.innerHTML = "<i class=\"fas fa-times-circle\"></i>";
     item_button_remove.addEventListener("click", function () {
         remove_exercise(id);
     })
@@ -70,7 +88,9 @@ function clean_exercise_list() {
 
 function add_exercise() {
     let data_form = new FormData(exercise_add_form);
+    data_form.append("date", date.toISOString().split('T')[0])
     let json = JSON.stringify(Object.fromEntries(data_form.entries()))
+
     fetch("/exercise_add", {
         method: "POST",
         headers: {
@@ -85,9 +105,26 @@ function add_exercise() {
     })
 }
 
+const predefined_day_texts = {
+    0: "Today",
+    1: "Yesterday",
+    2: "2 Days Ago",
+    3: "3 Days Ago"
+}
+
+
 function get_exercises() {
     clean_exercise_list();
-    let date = new Date();
+    date = new Date();
+    date.setDate(date.getDate() - day_diff);
+
+    if (day_diff in predefined_day_texts) {
+        exercises_list_title.innerText = predefined_day_texts[day_diff]
+    } else {
+        exercises_list_title.innerText = `${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()}`
+    }
+
+
     let date_string = date.toISOString().split('T')[0]
     fetch("/exercise_get?date=" + date_string, {
         method: "GET",
@@ -119,7 +156,6 @@ window.addEventListener("load", function () {
         exercise_add_form.addEventListener("submit", async function (e) {
             e.preventDefault(); // before the code
             /* do what you want with the form */
-
             add_exercise(exercise_add_form);
         })
     }

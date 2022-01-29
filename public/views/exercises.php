@@ -4,13 +4,19 @@ include "header.php";
     <script src="public/js/exercises.js" defer></script>
 
     <div class="exercises">
-        <div class="exercise-title">29-01-2022</div>
+        <div class="header">
+            <button onclick="previous_day()"><i class="fas fa-arrow-left"></i></button>
+            <div class="exercise-title">DAY</div>
+            <button onclick="next_day()"><i class="fas fa-arrow-right"></i></button>
+        </div>
+
         <div class="add-box">
             <div class="headers">
                 <label for="exercise-id">Name:</label>
                 <label for="exercise-series">Series:</label>
                 <label for="exercise-repeats">Repeats:</label>
                 <label for="exercise-weight">Weight:</label>
+                <label for="exercise-weight"></label>
             </div>
             <form id="exercise-form" class="exercise-form">
                 <select name="exercise-id" id="exercise-id" onchange="checkWeighted()" required>
@@ -34,7 +40,8 @@ include "header.php";
                 <input name="exercise-weight" id="exercise-weight" type="number" min="null"
                        placeholder="Weight in kilos: 20kg">
 
-                <input name="submit" id="exercise-id" type="submit" value="+">
+                <!--                <input name="submit" id="exercise-id" type="submit" value="">-->
+                <button id="add" type="submit" class="add-exercise"><i class='fas fa-plus-circle'></i></button>
             </form>
         </div>
         <div class="exercises-list">

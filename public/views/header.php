@@ -11,16 +11,20 @@
     <meta name="author" content="Nextprof">
     <link rel="stylesheet" type="text/css" href="public/css/main.css">
     <script src="https://kit.fontawesome.com/723297a893.js" crossorigin="anonymous"></script>
+
+
 </head>
 
 <body>
 <header>
     <nav>
-        <span class="nav-item">GYMPION</span>
-        <a href="/">Link 1</a>
-        <a href="/">Link 2</a>
-        <a href="/">Link 3</a>
-        <a href="/">Link 4</a>
+        <a href="/" class="logo">
+            <img src="public/img/logo.png" alt="Gympion Logo">
+        </a>
+        <a class="nav-item" href="/messages"><i class="fas fa-comments"></i>Messages</a>
+        <a class="nav-item" href="/exercises"><i class="fas fa-dumbbell"></i>Exercises</a>
+        <a class="nav-item" href="/dashboard"><i class="fas fa-columns"></i>Dashboard</a>
+        <a class="nav-item" href="/logout"><i class="fas fa-sign-out-alt"></i>Logout</a>
     </nav>
 
 </header>

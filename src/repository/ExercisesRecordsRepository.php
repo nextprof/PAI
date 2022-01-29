@@ -10,10 +10,10 @@ use repository\Repository;
 class ExercisesRecordsRepository extends Repository
 {
 
-    public function exercise_add($exercise_id, $repeats, $weight = null)
+    public function exercise_add($exercise_id, $repeats, $weight, $date)
     {
         $stmt = $this->database->connect()->prepare('
-            INSERT INTO exercises_records (user_id, exercise_id, repeats, weight) VALUES (:user,:exercise_id,:repeats,:weight);
+            INSERT INTO exercises_records (user_id, exercise_id, repeats, weight,time) VALUES (:user,:exercise_id,:repeats,:weight,:date);
         ');
 
 
@@ -21,6 +21,7 @@ class ExercisesRecordsRepository extends Repository
         $stmt->bindValue(':exercise_id', $exercise_id, PDO::PARAM_INT);
         $stmt->bindValue(':repeats', $repeats);
         $stmt->bindValue(':weight', $weight);
+        $stmt->bindValue(':date', $date);
 
         $stmt->execute();
     }

@@ -2,6 +2,10 @@
   box-sizing: border-box;
 }
 
+img {
+  max-width: 100%;
+}
+
 html {
   color: white;
   font-family: "Verdana", serif;
@@ -27,6 +31,7 @@ header {
   background-color: #252526;
 }
 header nav {
+  width: 100%;
   padding: 0.5rem;
   display: flex;
   flex-direction: column;
@@ -35,10 +40,15 @@ header nav {
   position: sticky;
   top: 0;
 }
+header nav .nav-item {
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1.5rem;
+  margin: 0.5rem 0;
+}
 
 main {
   width: calc(100% - 256px);
-  height: 100vh;
   margin: 0 0 auto 0;
 }
 
@@ -58,6 +68,7 @@ footer {
 .chat {
   display: flex;
   height: 100%;
+  min-height: 100vh;
 }
 .chat .message-box {
   position: relative;
@@ -65,8 +76,7 @@ footer {
   flex-flow: column nowrap;
   justify-content: flex-end;
   background-color: #4d4d52;
-  height: 100%;
-  width: 80%;
+  width: calc(100% - 196px);
 }
 .chat .message-box .message-title {
   position: absolute;
@@ -111,7 +121,7 @@ footer {
 }
 .chat .contact-box {
   padding: 0.5rem;
-  width: 20%;
+  width: 196px;
   display: flex;
   flex-direction: column;
   background-color: #252526;
@@ -124,6 +134,7 @@ footer {
 .chat .contact-box .contact-list {
   height: 50%;
   overflow-y: auto;
+  min-height: 172px;
 }
 .chat .contact-box .contact-query {
   border-radius: 1rem;
@@ -133,6 +144,7 @@ footer {
 }
 .chat .contact-box .search-box {
   height: 40%;
+  min-height: 172px;
 }
 .chat .contact-box .search-box .search-list {
   height: 80%;
@@ -156,27 +168,53 @@ footer {
   cursor: pointer;
 }
 
-.exercise-title {
-  text-align: center;
-  font-weight: 900;
-  font-size: 1.5rem;
-  padding: 1rem;
-}
-
 .exercises {
   border-top: 0.5rem solid #b75247;
   padding: 1rem;
   width: 100%;
   height: 100%;
 }
+.exercises .header {
+  display: grid;
+  grid-template-columns: 1fr 8fr 1fr;
+}
+.exercises .header .exercise-title {
+  text-align: center;
+  font-weight: 900;
+  font-size: 1.5rem;
+  padding: 1rem;
+}
+.exercises .header button {
+  padding: 1rem;
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 2rem;
+}
+.exercises .header button:hover {
+  cursor: pointer;
+}
 .exercises .exercises-list {
   background-color: #4d4d52;
   border-radius: 1rem;
+  overflow-y: auto;
 }
 .exercises .exercises-list .exercise-entry {
   padding: 1rem;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 0.25fr;
+  grid-template-columns: 1fr 1fr 1fr 0.2fr;
+}
+.exercises .exercises-list .exercise-entry .exercise-remove {
+  background-color: transparent;
+  border: none;
+  color: #ff0000;
+  font-size: 1rem;
+}
+.exercises .exercises-list .exercise-entry .exercise-remove:hover {
+  cursor: pointer;
+}
+.exercises .exercises-list .exercise-entry:hover {
+  background-color: #544343;
 }
 .exercises .add-box {
   display: flex;
@@ -193,7 +231,7 @@ footer {
 }
 .exercises .add-box .exercise-form {
   width: 100%;
-  padding: 0;
+  padding: 0 0 1rem 0;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 0.3fr;
 }
@@ -204,6 +242,15 @@ footer {
 }
 .exercises .add-box .exercise-form select {
   padding: 0.5rem;
+}
+.exercises .add-box .exercise-form .add-exercise {
+  background: transparent;
+  border: none;
+  color: chartreuse;
+  font-size: 1.5rem;
+}
+.exercises .add-box .exercise-form .add-exercise:hover {
+  cursor: pointer;
 }
 @media (max-width: 768px) {
   .exercises .add-box {
@@ -217,6 +264,79 @@ footer {
     width: 70%;
     grid-template-columns: 100%;
     text-align: right;
+  }
+}
+
+.stat-box {
+  padding: 2rem;
+  width: 100%;
+}
+.stat-box .header {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 8fr 1fr;
+}
+.stat-box .header button {
+  padding: 1rem;
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 2rem;
+}
+.stat-box .header button:hover {
+  cursor: pointer;
+}
+.stat-box .header .title {
+  text-align: center;
+  font-size: 1rem;
+  padding: 0;
+}
+.stat-box canvas {
+  background-color: rgba(0, 0, 0, 0.16);
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  body {
+    flex-direction: column;
+  }
+
+  header {
+    width: 100%;
+  }
+  header nav {
+    height: auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    position: initial;
+    justify-content: center;
+  }
+  header nav .nav-item {
+    width: auto;
+    font-size: 1rem;
+  }
+  header nav .logo {
+    text-align: center;
+    flex-basis: 100%;
+  }
+  header nav .logo img {
+    width: 128px;
+  }
+
+  main {
+    width: 100%;
+  }
+
+  .content {
+    min-height: 50vh;
+  }
+
+  .chat {
+    flex-direction: column;
+  }
+  .chat .message-box, .chat .contact-box {
+    flex: 0 0 50vh;
+    width: 100%;
   }
 }
 

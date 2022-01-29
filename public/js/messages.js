@@ -48,8 +48,6 @@ function load_message_list(messages) {
 }
 
 function get_messages(id) {
-    clean_messages()
-    chat_title.innerHTML = recipient_name;
     fetch("/message_get?id=" + id, {
         method: "GET",
         headers: {
@@ -58,11 +56,10 @@ function get_messages(id) {
     }).then(function (response) {
         return response.json();
     }).then(function (messages) {
+        clean_messages();
+        chat_title.innerHTML = recipient_name;
         load_message_list(messages);
-
     })
-
-
 }
 
 function create_message(message, its_me = false) {
@@ -91,6 +88,8 @@ function add_contact(id, name) {
     contact_list.appendChild(element);
 }
 
+let global_contacts = {};
+
 function get_contact_list() {
 
     fetch("/contact_list", {
@@ -101,14 +100,24 @@ function get_contact_list() {
     }).then(function (response) {
         return response.json();
     }).then(function (contacts) {
-        load_contact_list(contacts);
+
+        global_contacts = {};
+        contacts.forEach(contact => {
+                global_contacts[contact['id']] = contact
+            }
+        );
+
+        load_contact_list();
     })
 }
 
-function load_contact_list(contacts) {
+function load_contact_list() {
     contact_list.innerHTML = "";
-    for (let contact_id in contacts) {
-        add_contact(contacts[contact_id]['id'], contacts[contact_id]['name'])
+
+    console.log(global_contacts)
+
+    for (let key in global_contacts) {
+        add_contact(global_contacts[key]['id'], global_contacts[key]['name'])
     }
 }
 
@@ -145,23 +154,27 @@ function add_search_contact(id, name) {
     element.addEventListener("click", function () {
         recipient_id = id;
         recipient_name = name;
+        send_message("👋");
+        get_contact_list();
         get_messages(id);
+        contact_search_list.innerHTML = "";
     })
     contact_search_list.appendChild(element);
 }
 
 function load_search_contact_list(contacts) {
-    for (let contact_id in contacts) {
-        add_search_contact(contacts[contact_id]['id'], contacts[contact_id]['name'])
-    }
+    console.log(global_contacts)
+    contacts.forEach(contact => {
+        if(!(contact['id'] in global_contacts))
+            add_search_contact(contact['id'], contact['name']);
+    });
+
 }
 
 function search_users(value) {
-    console.log(recipient_id)
     const data = {
         query: value,
     };
-
     fetch("/contact_search", {
         method: "POST",
         headers: {
