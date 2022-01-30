@@ -191,7 +191,8 @@ function update_chart(root, data) {
                         padding: 4
                     }
                 }],
-            }
+            },
+            tooltips: {enabled: false},
         }
     });
 }
