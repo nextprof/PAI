@@ -70,7 +70,6 @@ class SecurityController extends AppController
             return $this->render('register', ['messages' => ['Please provide proper password']]);
         }
 
-        //TODO try to use better hash function
         $user = new User(null, $email, password_hash($password, PASSWORD_DEFAULT), $name);
 
         $this->userRepository->addUser($user);
