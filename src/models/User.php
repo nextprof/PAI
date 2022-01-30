@@ -10,13 +10,12 @@ class User
     private $username;
 
     public function __construct(
-        int|null    $id,
-        string $email,
-        string $password,
-        string $username
+        int|null $id,
+        string   $email,
+        string   $password,
+        string   $username
     )
     {
-
         $this->id = $id;
         $this->email = $email;
         $this->password = $password;

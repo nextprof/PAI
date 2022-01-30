@@ -18,17 +18,21 @@ class Session
         setcookie("user_id", self::getId());
     }
 
+    public static function getId(): int
+    {
+        if (isset($_SESSION['user'])) {
+            /** @var User $user */
+            $user = $_SESSION['user'];
+            return $user->getId();
+        } else {
+            return -1;
+        }
+    }
+
     public static function logout()
     {
         unset($_SESSION['user']);
         session_destroy();
-    }
-
-    public static function getId(): int
-    {
-        /** @var User $user */
-        $user = $_SESSION['user'];
-        return $user->getId();
     }
 
     public static function getUser()
