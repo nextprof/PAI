@@ -41,6 +41,12 @@ body {
     max-width: 512px;
 }
 
+.container-link{
+    color:white;
+    padding: 0.25rem;
+
+}
+
 form.login, form.register {
     display: flex;
     flex-direction: column;
