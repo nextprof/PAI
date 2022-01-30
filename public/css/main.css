@@ -1,390 +1,344 @@
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 img {
-    max-width: 100%;
+  max-width: 100%;
 }
 
 html {
-    color: white;
-    font-family: "Verdana", serif;
-    font-size: 16px;
-    background-color: #252526;
+  color: white;
+  font-family: "Verdana", serif;
+  font-size: 16px;
+  background-color: #252526;
 }
 
 body {
-    width: 100%;
-    margin: auto;
-    display: flex;
-    min-height: 100vh;
+  width: 100%;
+  margin: auto;
+  display: flex;
+  min-height: 100vh;
 }
 
 a {
-    text-decoration: none;
-    color: unset;
+  text-decoration: none;
+  color: unset;
 }
 
 header {
-    display: flex;
-    width: 256px;
-    background-color: #252526;
+  display: flex;
+  width: 256px;
+  background-color: #252526;
 }
-
 header nav {
-    width: 100%;
-    padding: 0.5rem;
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    gap: 1rem;
-    position: sticky;
-    top: 0;
+  width: 100%;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  gap: 1rem;
+  position: sticky;
+  top: 0;
 }
-
 header nav .nav-item {
-    width: 100%;
-    padding: 0.5rem;
-    font-size: 1.5rem;
-    margin: 0.5rem 0;
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1.5rem;
+  margin: 0.5rem 0;
 }
 
 main {
-    width: calc(100% - 256px);
-    margin: 0 0 auto 0;
+  width: calc(100% - 256px);
+  margin: 0 0 auto 0;
 }
 
 .content {
-    height: 100%;
+  height: 100%;
 }
 
 i.fas {
-    margin-right: 0.5rem;
+  margin-right: 0.5rem;
 }
 
 footer {
-    flex-direction: row;
-    background-color: #252526;
+  flex-direction: row;
+  background-color: #252526;
 }
 
 .chat {
-    display: flex;
-    height: 100%;
-    min-height: 100vh;
+  display: flex;
+  height: 100%;
+  min-height: 100vh;
 }
-
 .chat .message-box {
-    position: relative;
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: flex-end;
-    background-color: #4d4d52;
-    width: calc(100% - 196px);
+  position: relative;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-end;
+  background-color: #4d4d52;
+  width: calc(100% - 196px);
 }
-
 .chat .message-box .message-title {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: #b75247;
-    padding: 0.5rem;
-    text-align: center;
-    font-size: 1.5rem;
-    font-weight: 800;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #b75247;
+  padding: 0.5rem;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 800;
 }
-
 .chat .message-box .message-list {
-    padding: 1rem 1.5rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+  padding: 1rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
-
 .chat .message-box .message-list .message {
-    padding: 0.5rem;
-    max-width: 80%;
-    overflow-wrap: break-word;
+  padding: 0.5rem;
+  max-width: 80%;
+  overflow-wrap: break-word;
 }
-
 .chat .message-box .message-list .message.from {
-    background-color: #A8A8A8;
-    border-radius: 1rem 1rem 1rem 0;
-    align-self: flex-start;
+  background-color: #A8A8A8;
+  border-radius: 1rem 1rem 1rem 0;
+  align-self: flex-start;
 }
-
 .chat .message-box .message-list .message.to {
-    background-color: #ff6161;
-    border-radius: 1rem 1rem 0 1rem;
-    align-self: flex-end;
+  background-color: #ff6161;
+  border-radius: 1rem 1rem 0 1rem;
+  align-self: flex-end;
 }
-
 .chat .message-box .message-form {
-    width: 100%;
+  width: 100%;
 }
-
 .chat .message-box .message-form .message-input {
-    margin-top: 1rem;
-    border-radius: 1rem;
-    padding: 0.5rem;
-    width: 100%;
+  margin-top: 1rem;
+  border-radius: 1rem;
+  padding: 0.5rem;
+  width: 100%;
 }
-
 .chat .contact-box {
-    padding: 0.5rem;
-    width: 196px;
-    display: flex;
-    flex-direction: column;
-    background-color: #252526;
+  padding: 0.5rem;
+  width: 196px;
+  display: flex;
+  flex-direction: column;
+  background-color: #252526;
 }
-
 .chat .contact-box .title-line {
-    width: 100%;
-    font-weight: 600;
-    margin: 1.5rem 0 0.5rem 0;
+  width: 100%;
+  font-weight: 600;
+  margin: 1.5rem 0 0.5rem 0;
 }
-
 .chat .contact-box .contact-list {
-    height: 50%;
-    overflow-y: auto;
-    min-height: 172px;
+  height: 50%;
+  overflow-y: auto;
+  min-height: 172px;
 }
-
 .chat .contact-box .contact-query {
-    border-radius: 1rem;
-    padding: 0.5rem 0.75rem;
-    width: 100%;
-    border: none;
+  border-radius: 1rem;
+  padding: 0.5rem 0.75rem;
+  width: 100%;
+  border: none;
 }
-
 .chat .contact-box .search-box {
-    height: 40%;
-    min-height: 172px;
+  height: 40%;
+  min-height: 172px;
 }
-
 .chat .contact-box .search-box .search-list {
-    height: 80%;
-    overflow-y: auto;
+  height: 80%;
+  overflow-y: auto;
 }
-
 .chat .contact-box button {
-    width: 100%;
-    padding: 0.5rem 0.25rem;
-    background-color: transparent;
-    color: white;
-    font-size: 1rem;
-    margin-top: 1rem;
-    border: 1px solid transparent;
-    border-radius: 1rem;
+  width: 100%;
+  padding: 0.5rem 0.25rem;
+  background-color: transparent;
+  color: white;
+  font-size: 1rem;
+  margin-top: 1rem;
+  border: 1px solid transparent;
+  border-radius: 1rem;
 }
-
 .chat .contact-box button .add-symbol {
-    color: #b75247;
+  color: #b75247;
 }
-
 .chat .contact-box button:hover {
-    border-color: #b75247;
-    cursor: pointer;
+  border-color: #b75247;
+  cursor: pointer;
 }
 
 .exercises {
-    border-top: 0.5rem solid #b75247;
-    padding: 1rem;
-    width: 100%;
-    height: 100%;
+  border-top: 0.5rem solid #b75247;
+  padding: 1rem;
+  width: 100%;
+  height: 100%;
 }
-
 .exercises .header {
-    display: grid;
-    grid-template-columns: 1fr 8fr 1fr;
+  display: grid;
+  grid-template-columns: 1fr 8fr 1fr;
 }
-
 .exercises .header .exercise-title {
-    text-align: center;
-    font-weight: 900;
-    font-size: 1.5rem;
-    padding: 1rem;
+  text-align: center;
+  font-weight: 900;
+  font-size: 1.5rem;
+  padding: 1rem;
 }
-
 .exercises .header button {
-    padding: 1rem;
-    background-color: transparent;
-    border: none;
-    color: white;
-    font-size: 2rem;
+  padding: 1rem;
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 2rem;
 }
-
 .exercises .header button:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
-
 .exercises .exercises-list {
-    background-color: #4d4d52;
-    border-radius: 1rem;
-    overflow-y: auto;
+  background-color: #4d4d52;
+  border-radius: 1rem;
+  overflow-y: auto;
 }
-
 .exercises .exercises-list .exercise-entry {
-    padding: 1rem;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 0.2fr;
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 0.2fr;
 }
-
 .exercises .exercises-list .exercise-entry .exercise-remove {
-    background-color: transparent;
-    border: none;
-    color: #ff0000;
-    font-size: 1rem;
+  background-color: transparent;
+  border: none;
+  color: #ff0000;
+  font-size: 1rem;
 }
-
 .exercises .exercises-list .exercise-entry .exercise-remove:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
-
 .exercises .exercises-list .exercise-entry:hover {
-    background-color: #544343;
+  background-color: #544343;
 }
-
 .exercises .add-box {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
-
 .exercises .add-box .headers {
-    width: 100%;
-    padding: 0.15rem;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 0.3fr;
+  width: 100%;
+  padding: 0.15rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 0.3fr;
 }
-
 .exercises .add-box .headers label {
-    padding: 0.5rem;
+  padding: 0.5rem;
 }
-
 .exercises .add-box .exercise-form {
-    width: 100%;
-    padding: 0 0 1rem 0;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 0.3fr;
+  width: 100%;
+  padding: 0 0 1rem 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 0.3fr;
 }
-
 .exercises .add-box .exercise-form input {
-    padding: 0.5rem;
-    text-align: center;
-    min-width: 10%;
+  padding: 0.5rem;
+  text-align: center;
+  min-width: 10%;
 }
-
 .exercises .add-box .exercise-form select {
-    padding: 0.5rem;
+  padding: 0.5rem;
 }
-
 .exercises .add-box .exercise-form .add-exercise {
-    background: transparent;
-    border: none;
-    color: chartreuse;
-    font-size: 1.5rem;
+  background: transparent;
+  border: none;
+  color: chartreuse;
+  font-size: 1.5rem;
 }
-
 .exercises .add-box .exercise-form .add-exercise:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
-
 @media (max-width: 768px) {
-    .exercises .add-box {
-        flex-direction: row;
-    }
-
-    .exercises .add-box .headers {
-        width: 30%;
-        grid-template-columns: 100%;
-    }
-
-    .exercises .add-box .exercise-form {
-        width: 70%;
-        grid-template-columns: 100%;
-        text-align: right;
-    }
+  .exercises .add-box {
+    flex-direction: row;
+  }
+  .exercises .add-box .headers {
+    width: 30%;
+    grid-template-columns: 100%;
+  }
+  .exercises .add-box .exercise-form {
+    width: 70%;
+    grid-template-columns: 100%;
+    text-align: right;
+  }
 }
 
 .stat-box {
-    padding: 2rem;
-    width: 100%;
+  padding: 2rem;
+  width: 100%;
 }
-
 .stat-box .header {
-    width: 100%;
-    display: grid;
-    grid-template-columns: 1fr 8fr 1fr;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 8fr 1fr;
 }
-
 .stat-box .header button {
-    padding: 1rem;
-    background-color: transparent;
-    border: none;
-    color: white;
-    font-size: 2rem;
+  padding: 1rem;
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 2rem;
 }
-
 .stat-box .header button:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
-
 .stat-box .header .title {
-    text-align: center;
-    font-size: 1rem;
-    padding: 0;
+  text-align: center;
+  font-size: 1rem;
+  padding: 0;
 }
-
 .stat-box canvas {
-    background-color: rgba(0, 0, 0, 0.16);
-    width: 100%;
+  background-color: rgba(0, 0, 0, 0.16);
+  width: 100%;
+  max-height: 70vh;
 }
 
 @media (max-width: 768px) {
-    body {
-        flex-direction: column;
-    }
+  body {
+    flex-direction: column;
+  }
 
-    header {
-        width: 100%;
-    }
+  header {
+    width: 100%;
+  }
+  header nav {
+    height: auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    position: initial;
+    justify-content: center;
+  }
+  header nav .nav-item {
+    width: auto;
+    font-size: 1rem;
+  }
+  header nav .logo {
+    text-align: center;
+    flex-basis: 100%;
+  }
+  header nav .logo img {
+    width: 128px;
+  }
 
-    header nav {
-        height: auto;
-        flex-direction: row;
-        flex-wrap: wrap;
-        position: initial;
-        justify-content: center;
-    }
+  main {
+    width: 100%;
+  }
 
-    header nav .nav-item {
-        width: auto;
-        font-size: 1rem;
-    }
+  .content {
+    min-height: 50vh;
+  }
 
-    header nav .logo {
-        text-align: center;
-        flex-basis: 100%;
-    }
-
-    header nav .logo img {
-        width: 128px;
-    }
-
-    main {
-        width: 100%;
-    }
-
-    .content {
-        min-height: 50vh;
-    }
-
-    .chat {
-        flex-direction: column;
-    }
-
-    .chat .message-box, .chat .contact-box {
-        flex: 0 0 50vh;
-        width: 100%;
-    }
+  .chat {
+    flex-direction: column;
+  }
+  .chat .message-box, .chat .contact-box {
+    flex: 0 0 50vh;
+    width: 100%;
+  }
 }
+
+/*# sourceMappingURL=main.css.map */

@@ -155,7 +155,7 @@ function update_chart(root, data) {
 
                     var image = new Image();
                     image.src = images[index];
-                    ctx.drawImage(image, x - 32, y - 32);
+                    ctx.drawImage(image, x - 16, y - 16);
                 });
             }
         }],
@@ -170,6 +170,7 @@ function update_chart(root, data) {
         options: {
             responsive: true,
             layout: {
+
                 padding: {
                     top: 64,
                     left: 4,
@@ -193,6 +194,10 @@ function update_chart(root, data) {
                 }],
             },
             tooltips: {enabled: false},
+
+
+            maintainAspectRatio: false,
+
         }
     });
 }
