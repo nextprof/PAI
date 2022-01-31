@@ -41,14 +41,13 @@ class SecurityController extends AppController
         }
 
 
-
         Session::login($user);
 
-        if(Session::is_logged()){
+        if (Session::is_logged()) {
             $url = "http://$_SERVER[HTTP_HOST]";
             header("Location: {$url}/messages");
             return "redirect";
-        }else{
+        } else {
             return $this->render('login', ['messages' => ['User has not been logged in']]);
         }
 
@@ -72,9 +71,12 @@ class SecurityController extends AppController
 
         $user = new User(null, $email, password_hash($password, PASSWORD_DEFAULT), $name);
 
-        $this->userRepository->addUser($user);
-
-        return $this->render('login', ['messages' => ['You\'ve been successfully registered!']]);
+        try {
+            $this->userRepository->addUser($user);
+            return $this->render('login', ['messages' => ['You\'ve been successfully registered!']]);
+        } catch (\PDOException $exception) {
+            return $this->render('register', ['messages' => ['User with this username or email already exists.'.$exception->getMessage()]]);
+        }
     }
 
     public function logout()

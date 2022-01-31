@@ -13,24 +13,18 @@ VALUES (6, 'Curl bar', 3, true);
 
 /* all passwords are `test` */
 
-INSERT INTO public.users (id, username, email, password, image_url)
-VALUES (3, 'william_walker', 'ww@domain.com', '$2y$10$JUe0JBNEZoIvi8UqwZ9WgO2BqdFmEZXhL1zzFBKyphHg3zmpuZ.K2',
-        'https://images.unsplash.com/photo-1597586124394-fbd6ef244026?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=32&ixid=MnwxfDB8MXxyYW5kb218MHx8cGVyc29ufHx8fHx8MTY0MzUwMDIyOA&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=32');
-INSERT INTO public.users (id, username, email, password, image_url)
-VALUES (1, 'john_doe', 'jd@domain.com', '$2y$10$JUe0JBNEZoIvi8UqwZ9WgO2BqdFmEZXhL1zzFBKyphHg3zmpuZ.K2',
-        'https://images.unsplash.com/photo-1525550557089-27c1bfedd06c?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=32&ixid=MnwxfDB8MXxyYW5kb218MHx8cGVyc29ufHx8fHx8MTY0MzUwMDI0Ng&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=32');
-INSERT INTO public.users (id, username, email, password, image_url)
-VALUES (4, 'nicolas_mitchell', 'nm@domain.com', '$2y$10$JUe0JBNEZoIvi8UqwZ9WgO2BqdFmEZXhL1zzFBKyphHg3zmpuZ.K2',
-        'https://images.unsplash.com/photo-1525875975471-999f65706a10?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=32&ixid=MnwxfDB8MXxyYW5kb218MHx8cGVyc29ufHx8fHx8MTY0MzUwMDIyNA&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=32');
-INSERT INTO public.users (id, username, email, password, image_url)
-VALUES (5, 'harrison_scott', 'hs@domain.com', '$2y$10$JUe0JBNEZoIvi8UqwZ9WgO2BqdFmEZXhL1zzFBKyphHg3zmpuZ.K2',
-        'https://images.unsplash.com/photo-1544133782-b62779394064?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=32&ixid=MnwxfDB8MXxyYW5kb218MHx8Z3ltfHx8fHx8MTY0MzUwMDI5OQ&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=32');
-INSERT INTO public.users (id, username, email, password, image_url)
-VALUES (2, 'ewelina_vicans', 'ev@domain.com', '$2y$10$JUe0JBNEZoIvi8UqwZ9WgO2BqdFmEZXhL1zzFBKyphHg3zmpuZ.K2',
-        'https://images.unsplash.com/photo-1596815064285-45ed8a9c0463?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=32&ixid=MnwxfDB8MXxyYW5kb218MHx8cGVyc29ufHx8fHx8MTY0MzUwMDI1Mw&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=32');
-INSERT INTO public.users (id, username, email, password, image_url)
-VALUES (6, 'nextprof', 'np@domain.com', '$2y$10$JUe0JBNEZoIvi8UqwZ9WgO2BqdFmEZXhL1zzFBKyphHg3zmpuZ.K2',
-        'https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=32&ixid=MnwxfDB8MXxyYW5kb218MHx8cGVyc29ufHx8fHx8MTY0MzUwMDIxNA&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=32');
+INSERT INTO public.users (id, username, email, password)
+VALUES (3, 'william_walker', 'ww@domain.com', '$2y$10$JUe0JBNEZoIvi8UqwZ9WgO2BqdFmEZXhL1zzFBKyphHg3zmpuZ.K2');
+INSERT INTO public.users (id, username, email, password)
+VALUES (1, 'john_doe', 'jd@domain.com', '$2y$10$JUe0JBNEZoIvi8UqwZ9WgO2BqdFmEZXhL1zzFBKyphHg3zmpuZ.K2');
+INSERT INTO public.users (id, username, email, password)
+VALUES (4, 'nicolas_mitchell', 'nm@domain.com', '$2y$10$JUe0JBNEZoIvi8UqwZ9WgO2BqdFmEZXhL1zzFBKyphHg3zmpuZ.K2');
+INSERT INTO public.users (id, username, email, password)
+VALUES (5, 'harrison_scott', 'hs@domain.com', '$2y$10$JUe0JBNEZoIvi8UqwZ9WgO2BqdFmEZXhL1zzFBKyphHg3zmpuZ.K2');
+INSERT INTO public.users (id, username, email, password)
+VALUES (2, 'ewelina_vicans', 'ev@domain.com', '$2y$10$JUe0JBNEZoIvi8UqwZ9WgO2BqdFmEZXhL1zzFBKyphHg3zmpuZ.K2');
+INSERT INTO public.users (id, username, email, password)
+VALUES (6, 'nextprof', 'np@domain.com', '$2y$10$JUe0JBNEZoIvi8UqwZ9WgO2BqdFmEZXhL1zzFBKyphHg3zmpuZ.K2');
 
 INSERT INTO public.exercises_records (id, user_id, exercise_id, repeats, weight, time)
 VALUES (2, 2, 3, 60, 50, '2022-01-30');
