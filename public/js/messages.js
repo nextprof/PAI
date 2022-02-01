@@ -191,8 +191,7 @@ function search_users(value) {
 window.addEventListener("load", function () {
     if (chat_form !== null) {
         chat_form.addEventListener("submit", async function (e) {
-            e.preventDefault(); // before the code
-            /* do what you want with the form */
+            e.preventDefault();
 
             send_message(chat_input.value);
             chat_input.value = "";
@@ -201,8 +200,7 @@ window.addEventListener("load", function () {
 
     if (contact_search_form !== null) {
         contact_search_form.addEventListener("submit", async function (e) {
-            e.preventDefault(); // before the code
-            /* do what you want with the form */
+            e.preventDefault();
 
             contact_search_list.innerHTML = "";
             search_users(contact_search_input.value);

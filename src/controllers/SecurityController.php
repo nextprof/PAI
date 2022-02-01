@@ -83,8 +83,6 @@ class SecurityController extends AppController
     {
 
         Session::logout();
-        $url = "http://$_SERVER[HTTP_HOST]";
-//        header("Location: {$url}/login");
         return $this->render('login', ['messages' => ['Logged out!']]);
     }
 }

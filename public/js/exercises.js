@@ -154,8 +154,7 @@ window.addEventListener("load", function () {
     get_exercise_type_list();
     if (exercise_add_form !== null) {
         exercise_add_form.addEventListener("submit", async function (e) {
-            e.preventDefault(); // before the code
-            /* do what you want with the form */
+            e.preventDefault();
             add_exercise(exercise_add_form);
         })
     }
